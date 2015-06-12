@@ -1,0 +1,3 @@
+#!/bin/bash
+
+highlight -s solarized-light -O rtf -K 30 -k Monaco "$1" | pbcopy
