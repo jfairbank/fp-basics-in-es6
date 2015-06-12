@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jfairbank/functional-javascript/issues"
   },
-  "homepage": "https://github.com/jfairbank/functional-javascript#readme"
+  "homepage": "https://github.com/jfairbank/functional-javascript#readme",
+  "devDependencies": {
+    "yargs": "^3.10.0"
+  }
 }
