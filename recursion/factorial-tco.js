@@ -5,3 +5,5 @@ function factorial(n, accum = 1) {
 
   return factorial(n - 1, n * accum);
 }
+
+export default factorial;

@@ -5,3 +5,5 @@ function fibonacci(n, current = 0, next = 1) {
 
   return fibonacci(n - 1, next, current + next);
 }
+
+export default fibonacci;
