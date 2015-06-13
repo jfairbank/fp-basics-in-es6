@@ -3,7 +3,10 @@ function map(array, fn) {
     return array;
   }
 
-  return [fn(array[0])].concat(map(array.slice(1), fn));
+  const head = [fn(array[0])];
+  const tail = array.slice(1);
+
+  return head.concat(map(tail, fn));
 }
 
 export default map;

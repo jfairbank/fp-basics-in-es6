@@ -1,0 +1,92 @@
+#!/usr/bin/env babel-node
+
+import fs from 'fs';
+import yargs from 'yargs';
+import { Transform } from 'stream';
+import { spawn } from 'child_process';
+
+class Filter extends Transform {
+  constructor() {
+    super({ objectMode: true });
+  }
+
+  _transform(buffer, encoding, cb) {
+    let output = buffer.split('\n').filter((line) => {
+      return !/^(?:import|export)/.test(line.trim());
+    });
+
+    output = output.join('\n').trim() + '\n';
+    this.push(output);
+
+    cb();
+  }
+}
+
+const argv = yargs
+  .default('s', 'seashell')
+  .alias('s', 'style')
+  .default('S', 'js')
+  .alias('S', 'syntax')
+  .boolean('l')
+  .alias('l', 'line-numbers')
+  .default('l', false)
+  .default('O', 'rtf')
+  .alias('O', 'output')
+  .boolean('f')
+  .alias('f', 'filter')
+  .default('f', false)
+  .boolean('D')
+  .default('D', false)
+  .alias('D', 'debug')
+  .help('h')
+  .argv;
+
+const FONT_SIZE = '30';
+const FONT_FAMILY = 'Monaco';
+
+const highlightArgs = [
+  '-s', argv.style,
+  '-O', argv.output,
+  '-S', argv.syntax,
+  '-K', FONT_SIZE,
+  '-k', FONT_FAMILY
+];
+
+if (argv['line-numbers']) {
+  highlightArgs.push('-l');
+}
+
+const [filename] = argv._;
+const highlight = spawn('highlight', highlightArgs);
+const pbcopy = spawn('pbcopy');
+const stream = fs.createReadStream(filename, { encoding: 'utf8' });
+
+let src;
+
+if (argv.filter) {
+  const filter = new Filter();
+  filter.setEncoding('utf8');
+  src = stream.pipe(filter);
+} else {
+  src = stream;
+}
+
+highlight.stdin.setEncoding('utf8');
+src.pipe(highlight.stdin);
+
+//fs.readFile(filename, 'utf8', (err, data) => {
+//  if (!err) {
+//    const dataArray = data.split('\n');
+//    const allBut = parseInt(argv['all-but'], 10);
+//    const chunk = dataArray.slice(0, dataArray.length - allBut);
+
+//    highlight.stdin.write(chunk.join('\n'));
+//    highlight.stdin.end();
+//  }
+//});
+
+highlight.stdout.pipe(pbcopy.stdin);
+
+if (argv.debug) {
+  highlight.stdout.pipe(process.stdout);
+}
