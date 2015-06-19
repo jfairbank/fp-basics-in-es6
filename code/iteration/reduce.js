@@ -4,8 +4,8 @@ function reduce(array, fn, memo) {
   }
 
   const tail = array.slice(1);
-  const newMemo = memo ?
-    fn(memo, array[0]) : array[0];
+  const newMemo = memo == null ?
+    array[0] : fn(memo, array[0]);
 
   return reduce(tail, fn, newMemo);
 }
