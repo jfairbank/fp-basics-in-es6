@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jfairbank/functional-javascript#readme",
   "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
     "yargs": "^3.10.0"
   }
 }
