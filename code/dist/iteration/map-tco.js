@@ -13,8 +13,8 @@ function map(_x2, _x3) {
   var _again = true;
 
   _function: while (_again) {
-    var array = _x2,
-        fn = _x3;
+    var fn = _x2,
+        array = _x3;
     accum = _array = head = tail = newAccum = undefined;
     _again = false;
     var accum = _arguments[2] === undefined ? [] : _arguments[2];
@@ -31,7 +31,7 @@ function map(_x2, _x3) {
 
     var newAccum = [].concat(_toConsumableArray(accum), [fn(head)]);
 
-    _arguments = [_x2 = tail, _x3 = fn, newAccum];
+    _arguments = [_x2 = fn, _x3 = tail, newAccum];
     _again = true;
     continue _function;
   }

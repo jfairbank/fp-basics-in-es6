@@ -1,7 +1,7 @@
 import partial from '../partial/partial';
 function curry(fn, len = fn.length) {
   return (...args) => {
-    if (args.length === len) {
+    if (args.length >= len) {
       return fn(...args);
     }
 

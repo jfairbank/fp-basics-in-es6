@@ -1,12 +1,16 @@
-function reduce(array, fn, memo) {
+function reduce(fn, memo, array) {
   if (array.length === 0) {
     return memo;
   }
 
   const [head, ...tail] = array;
-  const newMemo = memo == null ? head : fn(memo, head);
 
-  return reduce(tail, fn, newMemo);
+  return reduce(fn, fn(memo, head), tail);
 }
 
-export default reduce;
+function reduce2(fn, array) {
+  const [head, ...tail] = array;
+  return reduce(fn, head, tail);
+}
+
+export { reduce, reduce2 };

@@ -18,7 +18,7 @@ function curry(fn) {
         args[_key] = arguments[_key];
       }
 
-      if (args.length === len) {
+      if (args.length >= len) {
         return fn.apply(undefined, args);
       }
 

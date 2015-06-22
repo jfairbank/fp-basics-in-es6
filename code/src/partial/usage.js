@@ -1,8 +1,6 @@
 // Before we would use this
 function additionFactory(x) {
-  return function(y) {
-    return x + y;
-  };
+  return (y) => x + y;
 }
 
 let add1 = additionFactory(1);
