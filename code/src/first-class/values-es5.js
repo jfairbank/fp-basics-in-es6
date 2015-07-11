@@ -1,6 +1,4 @@
 // Function declaration
-"use strict";
-
 function add(x, y) {
   return x + y;
 }
@@ -9,11 +7,11 @@ function add(x, y) {
 var addAlias = add;
 
 // Assign an anonymous function expression
-var multiply = function multiply(x, y) {
+var multiply = function(x, y) {
   return x * y;
 };
 
 // Functions have properties
-console.log(add.name); // 'add'
+console.log(add.name);      // 'add'
 console.log(addAlias.name); // 'add'
 console.log(multiply.name); // ''

@@ -1,5 +1,3 @@
-'use strict';
-
 var myName = 'Jeremy';
 var myHobbies = ['programming', 'reading', 'playing guitar'];
 
@@ -17,7 +15,7 @@ function add(x, y) {
 }
 
 function hobbiesMapper(hobbies) {
-  return function (fn) {
+  return function(fn) {
     return hobbies.map(fn);
   };
 }

@@ -1,5 +1,4 @@
 let myName = 'Jeremy';
-
 const myHobbies = ['programming', 'reading', 'playing guitar'];
 
 function getName() {

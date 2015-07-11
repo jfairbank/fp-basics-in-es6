@@ -1,0 +1,4 @@
+guard :shell do
+  watch(/(.*).js$/)   {|m| `./copy-syntax #{m[0]}` }
+  watch(/(.*).html$/) {|m| `./copy-syntax -S html #{m[0]}` }
+end
