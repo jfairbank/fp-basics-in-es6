@@ -3,8 +3,7 @@ function doubleNumbers(numbers) {
   const l = numbers.length;
 
   for (let i = 0; i < l; i++) {
-    let doubledNumber = numbers[i] * 2;
-    doubled.push(doubledNumber);
+    doubled.push(numbers[i] * 2);
   }
 
   return doubled;
@@ -12,5 +11,3 @@ function doubleNumbers(numbers) {
 
 doubleNumbers([1, 2, 3]);
 // [2, 4, 6]
-
-export default doubleNumbers;

@@ -1,15 +1,5 @@
-function add(x, y) {
-  return x + y;
-}
+const add = (x, y) => x + y;
 
-function capitalize(string) {
-  return string[0].toUpperCase() +
-         string.slice(1).toLowerCase();
-}
-
-function toTitleCase(string) {
-  return string
-    .split(/\s+/)
-    .map(capitalize)
-    .join(' ');
-}
+add(2, 3) === 5;
+add(2, 3) === 5;
+add(2, 3) === 5;

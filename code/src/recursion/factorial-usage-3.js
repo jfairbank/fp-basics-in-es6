@@ -1,4 +1,4 @@
 import factorial from './factorial';
-let value = factorial(100000);
+const value = factorial(100000);
 console.log(value);
 // Infinity

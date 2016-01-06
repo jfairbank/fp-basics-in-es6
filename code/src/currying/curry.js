@@ -1,5 +1,6 @@
-import partial from '../partial/partial';
-function curry(fn, len = fn.length) {
+const partial = (fn, ...args) => (...otherArgs) => fn(...args, ...otherArgs);
+
+const curry = (fn, len = fn.length) => {
   return (...args) => {
     if (args.length >= len) {
       return fn(...args);
@@ -10,6 +11,6 @@ function curry(fn, len = fn.length) {
       len - args.length
     );
   };
-}
+};
 
 export default curry;

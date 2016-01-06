@@ -1,11 +1,12 @@
-function factorial(n) {
+const factorial = (n) => {
   let result = 1;
 
   while (n > 1) {
-    result *= n--;
+    result *= n;
+    n--;
   }
 
   return result;
-}
+};
 
 export default factorial;
