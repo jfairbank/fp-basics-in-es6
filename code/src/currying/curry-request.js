@@ -1,5 +1,8 @@
 const request = defaults => options => {
-  return request(Object.assign(
+  options = Object.assign(
     {}, defaults, options
-  ));
+  );
+
+  return fetch(options.url, options)
+    .then(resp => resp.json());
 };

@@ -2,8 +2,8 @@ const greet = (name, greeting = 'Hi') => {
   console.log(greeting, name);
 };
 
-greet('Codemash', 'Hello');
-// Hello Codemash
+greet('Scenic City Summit', 'Hello');
+// Hello Scenic City Summit
 
-greet('Sandusky');
-// Hi Sandusky
+greet('Chattanooga');
+// Hi Chattanooga

@@ -8,5 +8,5 @@ const log = (...args) => {
   console.log(...args);
 };
 
-log('hello', 'codemash');
-// hello codemash
+log('hello', 'scenic city summit');
+// hello scenic city summit
