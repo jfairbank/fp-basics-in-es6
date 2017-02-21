@@ -84,10 +84,10 @@ class AverageByChildren extends Average {
 }
 
 const items = [
-  new Item('Motherboard', 'A', 65, 20),
-  new Item('CPU', 'A', 240, 10),
-  new Item('DRAM', 'B', 100, 50),
-  new Item('CPU', 'B', 150, 20),
+  new Item('Motherboard', 'A', 65),
+  new Item('CPU', 'A', 240),
+  new Item('DRAM', 'B', 100),
+  new Item('CPU', 'B', 150),
 ];
 
 const req = new Requisition(items);
