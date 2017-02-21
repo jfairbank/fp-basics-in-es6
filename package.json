@@ -1,0 +1,28 @@
+{
+  "name": "functional-javascript",
+  "version": "1.0.0",
+  "description": "This repo contains code samples for the \"Functional Programming Basics in ES6\" talk.",
+  "main": "index.js",
+  "scripts": {
+    "demo": "nodemon --exec 'clear; node demo' -w demo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfairbank/fp-basics-in-es6.git"
+  },
+  "author": "Jeremy Fairbank <elpapapollo@gmail.com> (http://jeremyfairbank.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfairbank/fp-basics-in-es6/issues"
+  },
+  "homepage": "https://github.com/jfairbank/fp-basics-in-es6#readme",
+  "devDependencies": {
+    "eslint": "^3.16.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "nodemon": "^1.11.0"
+  }
+}
