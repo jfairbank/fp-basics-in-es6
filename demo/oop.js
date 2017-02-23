@@ -37,8 +37,8 @@ class Average {
     return total / count;
   }
 
-  filter(item) {
-    return item;
+  filter() {
+    return true;
   }
 }
 
@@ -83,26 +83,33 @@ class AverageByChildren extends Average {
   }
 }
 
-const items = [
-  new Item('Motherboard', 'A', 65),
-  new Item('CPU', 'A', 240),
-  new Item('DRAM', 'B', 100),
-  new Item('CPU', 'B', 150),
-];
+it('passes tests', () => {
+  const items = [
+    new Item('Motherboard', 'A', 65),
+    new Item('CPU', 'A', 240),
+    new Item('DRAM', 'B', 100),
+    new Item('CPU', 'B', 150),
+  ];
 
-const req = new Requisition(items);
+  const req = new Requisition(items);
 
-const avgCost = req.getAverageCost(new Average());
-const avgCostCPU = req.getAverageCost(new AverageByName('CPU'));
+  const avgCost = req.getAverageCost(new Average());
+  const avgCostCPU = req.getAverageCost(new AverageByName('CPU'));
 
-const avgCostB = req.getAverageCost(new AverageByManufacturer('B'));
+  const avgCostB = req.getAverageCost(new AverageByManufacturer('B'));
 
-const avgCostCPUFromA = req.getAverageCost(new AverageByChildren([
-  new AverageByName('CPU'),
-  new AverageByManufacturer('A'),
-]));
+  const avgCostCPUFromA = req.getAverageCost(new AverageByChildren([
+    new AverageByName('CPU'),
+    new AverageByManufacturer('A'),
+  ]));
 
-console.log('Average Cost = %d', avgCost);
-console.log('Average Cost CPU = %d', avgCostCPU);
-console.log('Average Cost B = %d', avgCostB);
-console.log('Average Cost CPU from A = %d', avgCostCPUFromA);
+  expect(avgCost).toBe(138.75);
+  expect(avgCostCPU).toBe(195);
+  expect(avgCostB).toBe(125);
+  expect(avgCostCPUFromA).toBe(240);
+
+  console.log('Average Cost = %d', avgCost);
+  console.log('Average Cost CPU = %d', avgCostCPU);
+  console.log('Average Cost B = %d', avgCostB);
+  console.log('Average Cost CPU from A = %d', avgCostCPUFromA);
+});
